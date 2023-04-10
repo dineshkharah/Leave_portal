@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Leave Application Portal</title>
+    <link rel="stylesheet" href="home.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logo"></div>
+
+      <div class="nav-links">
+        <ul>
+          <li class="item profile-tab">
+            <a href="#" class="prof-button">Profile</a>
+            <ul class="profile-dropdown">
+              <li><a href="/log/Login/login.html">Log In</a></li>
+              <li><a href="/log/Registraion/register.html">Register</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <section id="home">
+      <h1>Leave Application Portal</h1>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="leave-type">Leave Type:</label>
+        <select id="leave-type" name="leave-type">
+          <option value="sick">Sick</option>
+          <option value="vacation">Vacation</option>
+          <option value="personal">Personal</option>
+        </select>
+
+        <label for="start-date">Start Date:</label>
+        <input type="date" id="start-date" name="start-date" required />
+
+        <label for="end-date">End Date:</label>
+        <input type="date" id="end-date" name="end-date" required />
+
+        <label for="reason">Reason:</label>
+        <textarea id="reason" name="reason" required></textarea>
+
+        <input type="submit" value="Submit" />
+      </form>
+    </section>
+  </body>
+</html>

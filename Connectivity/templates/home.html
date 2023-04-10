@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Leave Application Portal</title>
+    <!-- <link rel="stylesheet" href="home.css" /> -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <style>
+      body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      form {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px #ccc;
+        margin: 0 auto;
+        max-width: 500px;
+        padding: 20px;
+      }
+
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="date"],
+      textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+
+      select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        appearance: none;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      /* Navigation panel */
+      #navbar {
+        display: flex;
+        align-items: center;
+        margin: -15px;
+        position: relative;
+        width: 100%;
+        top: 12px;
+      }
+
+      #logo {
+        margin: 11px 23px;
+      }
+
+      #logo img {
+        height: 30px;
+        margin: 3px 55px;
+      }
+
+      #navbar ul {
+        display: flex;
+      }
+
+      #navbar::before {
+        content: "";
+        background-color: white;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+      }
+
+      #navbar ul li {
+        list-style: none;
+        font-size: 1.3rem;
+      }
+
+      #navbar ul li a {
+        color: black;
+        display: block;
+        margin: 29px 10px;
+        padding: 2px 30px;
+        border-radius: 20px;
+        text-decoration: none;
+      }
+
+      #navbar ul li a:hover {
+        background-color: transparent;
+        box-shadow: none;
+        text-decoration: underline;
+      }
+
+      .item {
+        position: relative;
+      }
+
+      #navbar .item.profile-tab:hover .profile-dropdown {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .nav-links {
+        display: flex;
+        justify-content: space-around;
+        position: relative;
+        flex: 1;
+      }
+
+      #navbar .profile-dropdown {
+        position: absolute;
+        background: #fff;
+        pointer-events: none;
+        width: 14rem;
+        border-radius: 10px;
+        opacity: 0;
+        flex-direction: column;
+        transition: all 200ms linear;
+      }
+
+      .prof-button {
+        background-color: #3e8e41;
+        /* background-color: #d42828; */
+      }
+
+      #home {
+        padding: 103px 400px;
+        height: 689px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logo"></div>
+
+      <div class="nav-links">
+        <ul>
+          <li class="item profile-tab">
+            <a href="#" class="prof-button">Profile</a>
+            <ul class="profile-dropdown">
+              <li><a href="/log/Login/login.html">Log In</a></li>
+              <li><a href="/log/Registraion/register.html">Register</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <section id="home">
+      <h1>Leave Application Portal</h1>
+      <form action="{% url 'saveportal' %}" method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="leaveType">Leave Type:</label>
+        <select id="leave-type" name="leaveType">
+          <option value="sick">Sick</option>
+          <option value="vacation">Vacation</option>
+          <option value="personal">Personal</option>
+        </select>
+
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="start-date" name="startDate" required />
+
+        <label for="endDate">End Date:</label>
+        <input type="date" id="end-date" name="endDate" required />
+
+        <label for="reason">Reason:</label>
+        <textarea id="reason" name="reason" required></textarea>
+
+        <input type="submit" value="Submit" />
+      </form>
+    </section>
+  </body>
+</html>
